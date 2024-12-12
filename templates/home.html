@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        select, input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Enter Campaign Details</h1>
+        <form method="POST">
+            <label for="Age">Age</label>
+            <input type="number" id="Age" name="Age" required>
+
+            <label for="Gender">Gender</label>
+            <select id="Gender" name="Gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label for="Income">Income</label>
+            <input type="number" step="0.01" id="Income" name="Income" required>
+
+            <label for="CampaignChannel">Campaign Channel</label>
+            <select id="CampaignChannel" name="CampaignChannel" required>
+                <option value="">Select Campaign Channel</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Email">Email</option>
+                <option value="PPC">PPC</option>
+                <option value="Referral">Referral</option>
+                <option value="SEO">SEO</option>
+            </select>
+
+            <label for="CampaignType">Campaign Type</label>
+            <select id="CampaignType" name="CampaignType" required>
+                <option value="">Select Campaign Type</option>
+                <option value="Awareness">Awareness</option>
+                <option value="Retention">Retention</option>
+                <option value="Conversion">Conversion</option>
+                <option value="Consideration">Consideration</option>
+            </select>
+
+            <label for="AdSpend">Ad Spend</label>
+            <input type="number" step="0.01" id="AdSpend" name="AdSpend" required>
+
+            <label for="ClickThroughRate">Click Through Rate</label>
+            <input type="number" step="0.01" id="ClickThroughRate" name="ClickThroughRate" required>
+
+            <label for="ConversionRate">Conversion Rate</label>
+            <input type="number" step="0.01" id="ConversionRate" name="ConversionRate" required>
+
+            <label for="WebsiteVisits">Website Visits</label>
+            <input type="number" id="WebsiteVisits" name="WebsiteVisits" required>
+
+            <label for="PagesPerVisit">Pages Per Visit</label>
+            <input type="number" step="0.01" id="PagesPerVisit" name="PagesPerVisit" required>
+
+            <label for="TimeOnSite">Time on Site</label>
+            <input type="number" step="0.01" id="TimeOnSite" name="TimeOnSite" required>
+
+            <label for="SocialShares">Social Shares</label>
+            <input type="number" id="SocialShares" name="SocialShares" required>
+
+            <label for="EmailOpens">Email Opens</label>
+            <input type="number" id="EmailOpens" name="EmailOpens" required>
+
+            <label for="EmailClicks">Email Clicks</label>
+            <input type="number" id="EmailClicks" name="EmailClicks" required>
+
+            <label for="PreviousPurchases">Previous Purchases</label>
+            <input type="number" id="PreviousPurchases" name="PreviousPurchases" required>
+
+            <label for="LoyaltyPoints">Loyalty Points</label>
+            <input type="number" id="LoyaltyPoints" name="LoyaltyPoints" required>
+
+            <button type="submit">Predict</button>
+        </form>
+        {% if results %}
+        <div class="result">
+            <strong>Prediction:</strong> {{ results }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
